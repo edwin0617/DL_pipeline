@@ -37,10 +37,13 @@ def get_args():
     
     parser.add_argument("--patience", type=int, default=None, 
                         help= "early-stopping counter")
-    # args = parser.parse_args()
+    
+    # args = parser.parse_args() >> Cannot get args in .ipynb files...!
     args, _ = parser.parse_known_args()
-    if args.debug:
+    
+    if args.debug: # If debugging mode, do not use Weight & Biases packages.
         args.wandb= False
+        
     return args
     
 if __name__ == "__main__":
